@@ -1,0 +1,64 @@
+html {
+    margin: 0px;
+    background-color: #ebe6e6;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: black;
+}
+
+body {
+    margin: 0 5%;
+}
+
+
+#header {
+    height: 80px;
+    width: 100%;
+    background-color: white;
+    display: block;
+}
+
+
+/*estilos opciones generar o comparar hash*/
+#opciones {
+    width: 100%;
+    margin: 0;
+    height: auto;
+    display: block;
+}
+
+ul {
+    margin: auto;
+    overflow: hidden;
+    width: max-content;
+    list-style-type: none;
+}
+
+li {
+    float: left;
+}
+
+    li a {
+        color: black;
+        display: block;
+        padding: 20px 60px;
+        text-decoration: none;
+    }
+
+        li a:hover:not(.active) {
+            background-color: #f3f5ec;
+            border-bottom: 6px solid #ffd800;
+        }
+
+.active {
+    border-bottom: 6px solid #ffd800;
+    font-weight: bold;
+}
+
+/*estilos opciones tipos de hash*/
+#tipos_hash {
+    display: block;
+    width: 100%;
+    height: 80px;
+    background-color: #f3f5ef;
+}
