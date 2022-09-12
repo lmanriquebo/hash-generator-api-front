@@ -10,15 +10,12 @@ body {
     margin: 0 5%;
 }
 
-
 #header {
     height: 80px;
     width: 100%;
     background-color: white;
     display: block;
 }
-
-
 /*estilos opciones generar o comparar hash*/
 #opciones {
     width: 100%;
