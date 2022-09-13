@@ -63,3 +63,7 @@ li a:hover:not(.active){
     height: 80px;
     background-color: #f3f5ef;
 }
+
+.custom-file-input ~ .custom-file-label::after {
+    content: "Elegir";
+}
