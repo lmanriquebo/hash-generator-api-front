@@ -67,3 +67,6 @@ li a:hover:not(.active){
 .custom-file-input ~ .custom-file-label::after {
     content: "Elegir";
 }
+.custom-file-input:hover {
+    cursor: pointer
+}

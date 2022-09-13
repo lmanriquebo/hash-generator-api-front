@@ -8,13 +8,19 @@ $(function(){
     })
 })
 
+
 function mostrarFormulario(_id) {
+    //muestra el formulario según la opción elegida por el usuario 
+
+    
     if (_id == "cont-generar-hash") {
+        //Generar hash
         document.getElementById(_id).style.display = "block";
         document.getElementById("cont-comparar-hash").style.display = "none";  
         document.getElementById("g-hash").classList.add('active');
         document.getElementById("c-hash").classList.remove('active');
     } else {
+        // Comparar Hash
         document.getElementById("cont-generar-hash").style.display = "none";
         document.getElementById("cont-comparar-hash").style.display = "block";
         document.getElementById("g-hash").classList.remove ('active');
