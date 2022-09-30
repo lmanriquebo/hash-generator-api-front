@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="es">
+
 <head>
-    <title>Hash Generate</title> 
+    <title>Hash Generate</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,9 +10,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="card">
         <div class="card-header">
@@ -21,8 +26,11 @@
             <div id="opciones">
                 <!--opciones generar o comparar hash-->
                 <ul style="margin-bottom:0;">
-                    <li><a id="g-hash" onclick="mostrarFormulario('cont-generar-hash')" class="active">Generar Hash</a></li>
-                    <li><a id="c-hash" onclick="mostrarFormulario('cont-comparar-hash')" class="">Comparar Hash</a></li>
+                    <li><a id="g-hash" onclick="mostrarFormulario('cont-generar-hash')" class="active">Archivo
+                            CheckSum</a>
+                    </li>
+                    <li><a id="c-hash" onclick="mostrarFormulario('cont-comparar-hash')" class="">Texto CheckSum</a>
+                    </li>
                 </ul>
             </div>
             <div id="tipos_hash" class="text-center">
@@ -35,12 +43,14 @@
                     </div>
                     <!--SHA-1 hash-->
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sha-1" name="tipo_encriptacion" class="custom-control-input" value="SHA1">
+                        <input type="radio" id="sha-1" name="tipo_encriptacion" class="custom-control-input"
+                            value="SHA1">
                         <label class="custom-control-label" for="sha-1">SHA-1</label>
                     </div>
                     <!--SHA-256 hash-->
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sha-256" name="tipo_encriptacion" class="custom-control-input" value="SHA256">
+                        <input type="radio" id="sha-256" name="tipo_encriptacion" class="custom-control-input"
+                            value="SHA256">
                         <label class="custom-control-label" for="sha-256">SHA-256</label>
                     </div>
                 </div>
@@ -49,43 +59,69 @@
 
         <div class="container" style="max-width: 90%;">
             <div class="row align-items-center">
-                <!--genarar hash-->
-                <div id="cont-generar-hash" class="card bg-light mb-3 w-100">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <h5 class="card-title">Generar Hash</h5>
-                        </div>
-                        <!--seleccionar archivo -->
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                <div class="col-md-12">
+                    <!--genarar hash-->
+                    <div id="cont-generar-hash" class="card bg-light mb-3 w-100">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <h5 class="card-title">Archivo CheckSum</h5>
                             </div>
-                            <textarea name="hash" rows="2" class="form-control" placeholder="Escribe el texto que deseas convertir en hash"></textarea>
-                        </div>
-                        <!--aquí se debe llamar la función para generar el hash-->
-                        <button type="button" onclick="alertHash('success','asdajsdhgajsdhgjas')" class="btn btn-info">Convertir</button>
-                    </div>
-                </div>
-                <!--comparar hash-->
-                <div id="cont-comparar-hash" class="card bg-light mb-3 w-100" style="display: none;">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <h5 class="card-title">Comparar Hash</h5>
-                        </div>
-                        <div class="form-group">
                             <!--seleccionar archivo -->
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="file" lang="es">
-                                <label class="custom-file-label" for="file">Seleccionar Archivo</label>
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                </div>
                             </div>
-                            <textarea name="hash" rows="2" class="form-control" placeholder="Escribe el hash que deseas comparar"></textarea>
+                            <!--aquí se debe llamar la función para generar el hash-->
+                            <button type="button" id="btn-generar-hash" class="btn btn-info">Generar Hash</button>
+                            <hr>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="" id="TipoHashByFile"></label>
+                                    <input type="text" id="HashGenerateByFile" class="form-control" disabled="disabled">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="" id="HashEsperado">Hash Esperado:</label>
+                                    <input type="text" id="HashEsperado" class="form-control">
+                                </div>
+                            </div>
+                            <button type="button" id="btn-generar-hash" class="btn btn-info">Comparar Hash</button>
                         </div>
-                        <!--aquí se debe llamar la función para comparar el hash-->
-                        <button type="button" onclick="alertHash('warning','asdajsdhgajsdhgjas')" class="btn btn-info">Convertir</button>
+                    </div>
+
+                    <!--comparar hash-->
+                    <div id="cont-comparar-hash" class="card bg-light mb-3 w-100" style="display: none;">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <h5 class="card-title">Texto CheckSum</h5>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Texto:</label>
+                                <textarea name="TextToHash" id="TextToHash" rows="10" class="form-control"
+                                    placeholder="Escribe el texto..."></textarea>
+                            </div>
+                            <!--aquí se debe llamar la función para comparar el hash-->
+                            <button type="button" id="btn-comparar-hash" class="btn btn-info">Generar Hash</button>
+                            <hr>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="" id="TipoHashByText"></label>
+                                    <input type="text" id="HashGenerateByText" class="form-control" disabled="disabled">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="" id="HashEsperado">Hash Esperado:</label>
+                                    <input type="text" id="HashEsperado" class="form-control">
+                                </div>
+                            </div>
+                            <button type="button" id="btn-generar-hash" class="btn btn-info">Comparar Hash</button>
+                        </div>
                     </div>
                 </div>
-
             </div>
             <!--mensaje de alerta-->
             <div id="alertHash" class="alert fade" role="alert">
@@ -97,10 +133,19 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
 <!--  ¯\_( ͡❛ ͜ʖ ͡❛)_/¯  -->
+
 </html>
