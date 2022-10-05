@@ -1,7 +1,4 @@
 $(function () {
-    //Selecciona el primer modo de cifrado
-    $("[name='tipo_encriptacion']").eq(0).prop("checked", true);
-
     //Adicion de eventos en input de bootstrap que no trae previamente desarrollado
     $('.custom-file-input').on('change', function () {
         //Captura el nombre del documento seleccionado
@@ -37,10 +34,17 @@ $(function () {
             ApiRest($urlApi, $controller, $metodo, $data, 'POST', 'json', 'application/json; charset=utf-8', true, false, false).then((response) => {
                 $("#TipoHashByFile").text($metodo);
                 $("#HashGenerateByFile").val(response.hash);
+
+                let hashGenerateByFile = $("#HashGenerateByFile").val();
+                let textesperadobyfile = $("#HashEsperadoByFile").val();
+
+                if (textesperadobyfile.length > 0) {
+                    validarChekSumByFile(textesperadobyfile, hashGenerateByFile);
+                }
             });
         }
         else {
-            alertHash('warning', "<strong>Validacion:</strong> Se deben seleccionar primero los campos: tipo de cifrado y archivo");
+            alertHash('warning', "", "<strong>Validacion:</strong> Se deben seleccionar primero los campos: tipo de cifrado y archivo");
         }
     });
 
@@ -68,18 +72,60 @@ $(function () {
                 //Muestra la respuesta
                 $("#TipoHashByText").text($metodo.toUpperCase());
                 $("#HashGenerateByText").val(response.hash);
+
+                let hashGenerateByText = $("#HashGenerateByText").val();
+                let textesperadobytext = $("#HashEsperadoByText").val();
+
+                if (textesperadobytext.length > 0) {
+                    validarChekSumByFile(textesperadobytext, hashGenerateByText);
+                }
             });
         }
         else {
             alertHash('warning', "<strong>Validacion:</strong> Se deben seleccionar primero los campos: tipo de cifrado y texto a cifrar");
         }
     });
-});
 
+    $("#HashEsperadoByFile").on("keyup", function () {
+        let hashGenerateByFile = $("#HashGenerateByFile").val();
+        if (hashGenerateByFile.length > 0) {
+            let textesperadobyfile = $("#HashEsperadoByFile").val();
+            validarChekSumByFile(textesperadobyfile, hashGenerateByFile);
+        }
+    });
+
+    $("#HashEsperadoByText").on("keyup", function () {
+        let hashGenerateByText = $("#HashGenerateByText").val();
+        if (hashGenerateByText.length > 0) {
+            let textesperadobytext = $("#HashEsperadoByText").val();
+            validarChekSumByFile(textesperadobytext, hashGenerateByText);
+        }
+    });
+
+    $("[name='tipo_encriptacion']").on("change", function () {
+        $("#TipoHashByFile").text($(this).val());
+        $("#TipoHashByText").text($(this).val());
+        $("#HashGenerateByFile").val("");
+        $("#HashGenerateByText").val("");
+    });
+
+    var validarChekSumByFile = function (textoesperado, hashGenerate) {
+        if (textoesperado == hashGenerate) {
+            alertHash("success", "Validación Hash", "<strong>El hash generado es igual al esperado.");
+        }
+        else {
+            alertHash("danger", "Validación Hash", "<strong>El hash generado no es igual al esperado.");
+        }
+    };
+
+    //Selecciona el primer modo de cifrado
+    $("[name='tipo_encriptacion']").eq(0).prop("checked", true);
+    $("[name='tipo_encriptacion']:checked").trigger("change");
+});
 
 function mostrarFormulario(_id) {
     //muestra el formulario según la opción elegida por el usuario 
-
+    $("#alertHash").removeClass("show");
 
     if (_id == "cont-generar-hash") {
         //Generar hash
@@ -103,7 +149,7 @@ function mostrarFormulario(_id) {
  * @param {*} hash 
  * @return events
  */
-function alertHash(action, message = "") {
+function alertHash(action, text = "", message = "") {
     //Crea el objeto con los datos necesarios para la alerta por defecto
     let data = {
         icon: "fa-circle-check",
@@ -116,17 +162,17 @@ function alertHash(action, message = "") {
     switch (action) {
         case "success":
             data.icon = "fa-circle-check";
-            data.text = "<strong>Genial!!</strong>, se ha generado exitosamente.";
+            data.text = text != "" ? text : "<strong>Genial!!</strong>, se ha generado exitosamente.";
             break;
 
         case "danger":
             data.icon = "fa-square-xmark";
-            data.text = "<strong>Ups!!</strong>, no se pudo generar.";
+            data.text = text != "" ? text : "<strong>Ups!!</strong>, no se pudo generar.";
             break;
 
         case "warning":
             data.icon = "fa-triangle-exclamation";
-            data.text = "<strong>Uy!</strong>, presenta novedades en la generación del hash";
+            data.text = text != "" ? text : "<strong>Uy!</strong>, presenta novedades en la generación del hash";
             break;
     }
 
