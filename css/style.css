@@ -70,3 +70,208 @@ li a:hover:not(.active){
 .custom-file-input:hover {
     cursor: pointer
 }
+
+/*estilos de opacidad containe*/
+.overlay{
+    background-color: rgba(0,0,0,.3);
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.overlay.active{
+    visibility: visible;
+}
+
+/* estilos de ventana emergente correo*/
+.popup{
+    background: #f8f8f8;
+    box-shadow: 0 px 0 px 5px 0px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    transition: .2s ease all;
+    transform: scale(0.7);
+    opacity: 0;
+}
+/* estilos icono de cerrar ventana emergente */
+.popup .btn-cerrar-popup{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+
+/*cerrar ventana emergente*/
+.popup .btn-cerrar-popup:hover{
+color: #000;
+}
+/*titulo escribir correo*/
+.popup h3 {
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+
+/*contenedor de correo*/
+.popup .contenedor-inputs input{
+
+    width: 100%;
+    margin-bottom: 20px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #BBBBBB;
+}
+
+/*boton enviar*/
+.popup .btn-submit {
+    
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: #fff;
+    background: #17a2b8;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s ease all;
+
+
+}
+
+.popup .btn-submit:hover{
+    background: #17a2b8;
+}
+
+ /*animaciones*/
+.popup.active{opacity: 1; transform: scale(1);}
+.popup.active h3 { animation: entradaTitulo .8s ease .3s forwards;}
+
+@keyframes entradaTitulo {
+    from{
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*estilos de opacidad containe*/
+.overlay2{
+    background-color: rgba(0,0,0,.3);
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.overlay2.active{
+    visibility: visible;
+}
+
+/* estilos de ventana emergente correo*/
+.popup2{
+    background: #f8f8f8;
+    box-shadow: 0 px 0 px 5px 0px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    transition: .2s ease all;
+    transform: scale(0.7);
+    opacity: 0;
+}
+/* estilos icono de cerrar ventana emergente */
+.popup2 .btn-cerrar-popup2{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+
+/*cerrar ventana emergente*/
+.popup2 .btn-cerrar-popup2:hover{
+color: #000;
+}
+/*titulo escribir correo*/
+.popup2 h3 {
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+
+/*contenedor de correo*/
+.popup2 .contenedor-inputs2 input{
+
+    width: 100%;
+    margin-bottom: 20px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #BBBBBB;
+}
+
+/*boton enviar*/
+.popup2 .btn-submit2 {
+    
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: #fff;
+    background: #17a2b8;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s ease all;
+
+
+}
+
+.popup2 .btn-submit2:hover{
+    background: #17a2b8;
+}
+
+ /*animaciones*/
+.popup2.active{opacity: 1; transform: scale(1);}
+.popup2.active h3 { animation: entradaTitulo .8s ease .3s forwards;}
+
+@keyframes entradaTitulo {
+    from{
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
