@@ -275,3 +275,23 @@ color: #000;
         opacity: 1;
     }
 }
+
+#loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#loading > div{
+    height: 100%;
+    transform: translate(47%,47%);
+}
+
+#loading > div > div{
+    width: 7rem; height: 7rem;
+}

@@ -1,3 +1,9 @@
+$(document).ajaxStart(function() {
+  $("#loading").show();
+}).ajaxStop(function() {
+  $("#loading").hide('slow');
+});
+
 $(function () {
   //Adicion de eventos en input de bootstrap que no trae previamente desarrollado
   $(".custom-file-input").on("change", function () {
@@ -29,7 +35,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://127.0.0.1:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "file";
       var $metodo = hashChk.toUpperCase();
 
@@ -46,6 +52,7 @@ $(function () {
         false,
         false
       ).then((response) => {
+        alertReturnPetition(response);
         $("#TipoHashByFile").text($metodo);
         $("#HashGenerateByFile").val(response.hash);
 
@@ -78,7 +85,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://127.0.0.1:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "string";
       var $metodo = hashChk.toLowerCase();
 
@@ -95,6 +102,7 @@ $(function () {
         false,
         false
       ).then((response) => {
+        alertReturnPetition(response);
         //Muestra la respuesta
         $("#TipoHashByText").text($metodo.toUpperCase());
         $("#HashGenerateByText").val(response.hash);
@@ -158,12 +166,13 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://127.0.0.1:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "string";
       var $metodo = hashChk.toLowerCase();
 
       //Realiza la peticion
       ApiRest( $urlApi, $controller, $metodo, $data, "POST", "json", "application/json; charset=utf-8", true, false, false ).then((response) => {
+        alertReturnPetition(response);
         let textesperadobytext = $("#HashEsperadoByText").val();
 
         var data = {
@@ -211,7 +220,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://127.0.0.1:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "file";
       var $metodo = hashChk.toUpperCase();
 
@@ -228,6 +237,7 @@ $(function () {
         false,
         false
       ).then((response) => {
+        alertReturnPetition(response);
         let textesperadobyfile = $("#HashEsperadoByFile").val();
         var data = {
           toAddress: emailEnvio,
@@ -458,5 +468,25 @@ function ApiRest(
     async: $async,
     cache: $cache,
     processData: $processData,
+    error: function (jqXhr) { // error callback 
+      alertReturnPetition(jqXhr);
+    }
   });
+}
+
+function alertReturnPetition(response){
+  
+  if(response.hash){
+    Swal.fire(
+      'Buen trabajo!',
+      'Hash generado exitosamente',
+      'success'
+    )
+  }else{
+    Swal.fire(
+      'Ups!',
+      response.responseJSON.descripcion,
+      'error'
+    )
+  }
 }
