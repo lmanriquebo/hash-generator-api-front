@@ -463,6 +463,9 @@ function ApiRest(
     async: $async,
     cache: $cache,
     processData: $processData,
+    error: function (jqXhr, textStatus, errorMessage) { // error callback 
+      alertReturnPetition(errorMessage);
+    }
   });
 }
 
