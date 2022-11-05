@@ -4,7 +4,8 @@ El aplicativo web nos permitirá la realización el cifrado de un archivo o de u
 
 ## Visualizacion del front
 
-![](https://github.com/FabianMCaro/hash-generator-api-front/tree/master/imgReadme/principal.png)
+![alt](https://github.com/FabianMCaro/hash-generator-api-front/tree/master/imgReadme/principal.png)
+![alt text](https://github.com/FabianMCaro/Diplomado-Taller-1/blob/main/img/Imagen2.png)
 
 En esta página se podrá realizar el cifrado de un archivo o de un texto como también obtener su respectivo hash.
 En la parte superior podremos seleccionar que deseamos hacer, cifrar un archivo o un texto:
