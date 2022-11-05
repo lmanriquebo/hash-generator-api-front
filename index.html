@@ -15,6 +15,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Monserrat:300,400,600|Open+Sans" rel="stylesheet">
 </head>
 
 <body>
@@ -74,6 +77,8 @@
                             </div>
                             <!--aquí se debe llamar la función para generar el hash-->
                             <button type="button" id="btn-generar-hash" class="btn btn-info">Generar Hash</button>
+                             <!--Aqui esta el boton para hacer envio de hash a un correo electronico -->
+                             <button type="button" id="btn-correo" class="btn btn-info">Enviar a correo</button>
                             <hr>
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -103,6 +108,8 @@
                             </div>
                             <!--aquí se debe llamar la función para comparar el hash-->
                             <button type="button" id="btn-comparar-hash" class="btn btn-info">Generar Hash</button>
+                             <!--Aqui esta el boton para hacer envio de hash a un correo electronico -->
+                            <button type="button" id="btn-correo-2" class="btn btn-info">Enviar a correo</button>
                             <hr>
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -129,7 +136,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -142,6 +149,29 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
+
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup"> 
+            <a href="" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class ="fas fa-times"></i></a>
+            <h3>Escribir correo</h3>
+            
+            <div class="contenedor-inputs">
+                <input type="email" id="emailEnvio" placeholder="correo"> 
+            </div>
+            <input type="submit" id="submit" class="btn-submit" value="Enviar">
+        </div>
+    </div>
+
+    <div class="overlay2" id="overlay2">
+        <div class="popup2" id="popup2"> 
+            <a href="" id="btn-cerrar-popup2" class="btn-cerrar-popup2"><i class ="fas fa-times"></i></a>
+            <h3>Escribir correo</h3>           
+            <div class="contenedor-inputs2">
+                <input type="email" id="emailEnvio2" placeholder="correo"> 
+            </div>
+            <input type="submit" id="submit2" class="btn-submit2" value="Enviar">           
+        </div>
+   </div>
 </body>
 <!--  ¯\_( ͡❛ ͜ʖ ͡❛)_/¯  -->
 
