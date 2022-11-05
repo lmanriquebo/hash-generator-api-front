@@ -96,7 +96,6 @@ $(function () {
         false,
         false
       ).then((response) => {
-        console.log(response);
         alertReturnPetition(response);
         //Muestra la respuesta
         $("#TipoHashByText").text($metodo.toUpperCase());
@@ -463,16 +462,25 @@ function ApiRest(
     async: $async,
     cache: $cache,
     processData: $processData,
-    error: function (jqXhr, textStatus, errorMessage) { // error callback 
-      console.log(jqXhr, textStatus,errorMessage);
+    error: function (jqXhr) { // error callback 
+      alertReturnPetition(jqXhr);
     }
   });
 }
 
 function alertReturnPetition(response){
+  
   if(response.hash){
-    alert("Hash generado exitosamente");
+    Swal.fire(
+      'Buen trabajo!',
+      'Hash generado exitosamente',
+      'success'
+    )
   }else{
-    alert(response.descripcion);
+    Swal.fire(
+      'Ups!',
+      response.responseJSON.descripcion,
+      'error'
+    )
   }
 }
