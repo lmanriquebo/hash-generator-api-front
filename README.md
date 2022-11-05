@@ -4,5 +4,5 @@ El aplicativo web nos permitirá la realización el cifrado de un archivo o de u
 
 ## Visualizacion del front 
 <br>
-<img height="700" src="https://github.com/FabianMCaro/hash-generator-api-front/imgReadme/1.png">
+<img height="700" src="https://github.com/FabianMCaro/hash-generator-api-front/imgReadme/principal.png">
 </br>
