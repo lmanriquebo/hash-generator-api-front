@@ -1,3 +1,9 @@
+$(document).ajaxStart(function() {
+  $("#loading").show();
+}).ajaxStop(function() {
+  $("#loading").hide('slow');
+});
+
 $(function () {
   //Adicion de eventos en input de bootstrap que no trae previamente desarrollado
   $(".custom-file-input").on("change", function () {
@@ -29,7 +35,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "file";
       var $metodo = hashChk.toUpperCase();
 
@@ -79,7 +85,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "string";
       var $metodo = hashChk.toLowerCase();
 
@@ -96,7 +102,6 @@ $(function () {
         false,
         false
       ).then((response) => {
-        console.log(response);
         alertReturnPetition(response);
         //Muestra la respuesta
         $("#TipoHashByText").text($metodo.toUpperCase());
@@ -161,7 +166,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "string";
       var $metodo = hashChk.toLowerCase();
 
@@ -215,7 +220,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "file";
       var $metodo = hashChk.toUpperCase();
 
@@ -463,16 +468,25 @@ function ApiRest(
     async: $async,
     cache: $cache,
     processData: $processData,
-    error: function (jqXhr, textStatus, errorMessage) { // error callback 
-      console.log(jqXhr, textStatus,errorMessage);
+    error: function (jqXhr) { // error callback 
+      alertReturnPetition(jqXhr);
     }
   });
 }
 
 function alertReturnPetition(response){
+  
   if(response.hash){
-    alert("Hash generado exitosamente");
+    Swal.fire(
+      'Buen trabajo!',
+      'Hash generado exitosamente',
+      'success'
+    )
   }else{
-    alert(response.descripcion);
+    Swal.fire(
+      'Ups!',
+      response.responseJSON.descripcion,
+      'error'
+    )
   }
 }
