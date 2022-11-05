@@ -96,6 +96,7 @@ $(function () {
         false,
         false
       ).then((response) => {
+        console.log(response);
         alertReturnPetition(response);
         //Muestra la respuesta
         $("#TipoHashByText").text($metodo.toUpperCase());
