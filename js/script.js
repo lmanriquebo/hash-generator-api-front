@@ -275,7 +275,7 @@ $(function () {
   async function enviarCorreo(data) {
     var config = {
       method: "post",
-      url: "http://localhost:7000/sendEmail",
+      url: " https://node-hash-email.herokuapp.com/sendEmail",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
