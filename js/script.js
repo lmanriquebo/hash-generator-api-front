@@ -29,7 +29,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "file";
       var $metodo = hashChk.toUpperCase();
 
@@ -79,7 +79,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "string";
       var $metodo = hashChk.toLowerCase();
 
@@ -160,7 +160,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "string";
       var $metodo = hashChk.toLowerCase();
 
@@ -214,7 +214,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
+      var $urlApi = "https://u1qlsjy419.execute-api.us-east-1.amazonaws.com/test/api/v1/hash/";
       var $controller = "file";
       var $metodo = hashChk.toUpperCase();
 
