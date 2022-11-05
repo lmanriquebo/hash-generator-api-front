@@ -1,3 +1,9 @@
+$(document).ajaxStart(function() {
+  $("#loading").show();
+}).ajaxStop(function() {
+  $("#loading").hide('slow');
+});
+
 $(function () {
   //Adicion de eventos en input de bootstrap que no trae previamente desarrollado
   $(".custom-file-input").on("change", function () {
