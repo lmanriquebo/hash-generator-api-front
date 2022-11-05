@@ -29,7 +29,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://127.0.0.1:5000/api/v1/hash/";
+      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
       var $controller = "file";
       var $metodo = hashChk.toUpperCase();
 
@@ -78,7 +78,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://127.0.0.1:5000/api/v1/hash/";
+      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
       var $controller = "string";
       var $metodo = hashChk.toLowerCase();
 
@@ -158,7 +158,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://127.0.0.1:5000/api/v1/hash/";
+      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
       var $controller = "string";
       var $metodo = hashChk.toLowerCase();
 
@@ -211,7 +211,7 @@ $(function () {
       };
 
       //Configuracion de consumo
-      var $urlApi = "http://127.0.0.1:5000/api/v1/hash/";
+      var $urlApi = "http://10.8.17.195:5000/api/v1/hash/";
       var $controller = "file";
       var $metodo = hashChk.toUpperCase();
 
