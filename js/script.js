@@ -46,6 +46,7 @@ $(function () {
         false,
         false
       ).then((response) => {
+        alertReturnPetition(response);
         $("#TipoHashByFile").text($metodo);
         $("#HashGenerateByFile").val(response.hash);
 
@@ -95,6 +96,7 @@ $(function () {
         false,
         false
       ).then((response) => {
+        alertReturnPetition(response);
         //Muestra la respuesta
         $("#TipoHashByText").text($metodo.toUpperCase());
         $("#HashGenerateByText").val(response.hash);
@@ -164,6 +166,7 @@ $(function () {
 
       //Realiza la peticion
       ApiRest( $urlApi, $controller, $metodo, $data, "POST", "json", "application/json; charset=utf-8", true, false, false ).then((response) => {
+        alertReturnPetition(response);
         let textesperadobytext = $("#HashEsperadoByText").val();
 
         var data = {
@@ -228,6 +231,7 @@ $(function () {
         false,
         false
       ).then((response) => {
+        alertReturnPetition(response);
         let textesperadobyfile = $("#HashEsperadoByFile").val();
         var data = {
           toAddress: emailEnvio,
@@ -459,4 +463,12 @@ function ApiRest(
     cache: $cache,
     processData: $processData,
   });
+}
+
+function alertReturnPetition(response){
+  if(response.hash){
+    alert("Hash generado exitosamente");
+  }else{
+    alert(response.descripcion);
+  }
 }
