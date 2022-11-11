@@ -27,11 +27,13 @@ Al seleccionar la pestaña generar un archivo tendremos, la casilla para poder s
 Después de seleccionar el archivo se tendrá dos botones, cada uno con una funcionalidad diferente.
 
 - **Generar Hash**
+
 Este botón nos mostrara el hash que se genere del archivo que se selecciono.
 
 ![alt](https://github.com/lmanriquebo/hash-generator-api-front/blob/master/imgReadme/generarHash.png)
 
 - **Enviar a correo**
+
 Este botón generara el hash y no lo enviara a una dirección de correo electrónico, mediante un cuadro de texto que preguntara la dirección del correo electrónico.
 
 ![alt](https://github.com/lmanriquebo/hash-generator-api-front/blob/master/imgReadme/enviarCorreo.png)
