@@ -153,8 +153,7 @@ $(function () {
   });
 
   // boton Enviar texto correo electronico
-  $("#submit2").on("click", async function (e) {
-    e.preventDefault();
+  $("#submit2").on("click", async function () {
     const Text = $("#TextToHash").val();
     const hashChk = $("[name='tipo_encriptacion']:checked").val();
     const emailEnvio2 = $("#emailEnvio2").val();
@@ -190,7 +189,7 @@ $(function () {
 
         enviarCorreo(data).then((res) => {
           let tipo = res.message == "Error al enviar el correo." ? "danger" : "success";
-          $("#overlay,#popup,#overlay2,#popup2").removeClass("active");
+          $("#overlay2,#popup2").removeClass("active");
           alertHash( tipo, "<strong>Respuesta servidor:</strong>", res.message);
         });
       });
@@ -238,7 +237,6 @@ $(function () {
         false,
         false
       ).then((response) => {
-        alertReturnPetition(response);
         let textesperadobyfile = $("#HashEsperadoByFile").val();
         var data = {
           toAddress: emailEnvio,
@@ -257,11 +255,9 @@ $(function () {
         };
 
         enviarCorreo(data).then((res) => {
-          alertHash(
-            "success",
-            "<strong>Respuesta servidor:</strong>",
-            res.message
-          );
+          let tipo = res.message == "Error al enviar el correo." ? "danger" : "success";
+          $("#overlay,#popup").removeClass("active");
+          alertHash( tipo, "<strong>Respuesta servidor:</strong>", res.message);
         });
       });
     } else {
