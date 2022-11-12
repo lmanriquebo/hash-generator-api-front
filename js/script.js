@@ -153,7 +153,8 @@ $(function () {
   });
 
   // boton Enviar texto correo electronico
-  $("#submit2").on("click", async function () {
+  $("#submit2").on("click", async function (e) {
+    e.preventDefault();
     const Text = $("#TextToHash").val();
     const hashChk = $("[name='tipo_encriptacion']:checked").val();
     const emailEnvio2 = $("#emailEnvio2").val();
@@ -172,9 +173,7 @@ $(function () {
 
       //Realiza la peticion
       ApiRest( $urlApi, $controller, $metodo, $data, "POST", "json", "application/json; charset=utf-8", true, false, false ).then((response) => {
-        alertReturnPetition(response);
         let textesperadobytext = $("#HashEsperadoByText").val();
-
         var data = {
           toAddress: emailEnvio2,
           subject: "Uniminuto Hash Generator - Respuesta",
@@ -190,7 +189,9 @@ $(function () {
         };
 
         enviarCorreo(data).then((res) => {
-          alertHash( "success", "<strong>Respuesta servidor:</strong>", res.message);
+          let tipo = res.message == "Error al enviar el correo." ? "danger" : "success";
+          $("#overlay,#popup,#overlay2,#popup2").removeClass("active");
+          alertHash( tipo, "<strong>Respuesta servidor:</strong>", res.message);
         });
       });
     } else {
@@ -474,12 +475,13 @@ function ApiRest(
   });
 }
 
-function alertReturnPetition(response){
+function alertReturnPetition(response, text = ""){
   
-  if(response.hash){
+  if(response){
+    text = !text ? "Hash generado exitosamente" : text
     Swal.fire(
       'Buen trabajo!',
-      'Hash generado exitosamente',
+      text,
       'success'
     )
   }else{
