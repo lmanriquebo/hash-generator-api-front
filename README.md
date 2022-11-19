@@ -65,6 +65,10 @@ Pero también se mostrar una alerta si los dos hash no coinciden.
 
 ![alt](https://github.com/lmanriquebo/hash-generator-api-front/blob/master/imgReadme/alertaError.png)
 
+## Docker Hub
+
+En el siguiente [link](https://hub.docker.com/r/lmanriquebo/container-hash-api-front) se puede ver y descargar el proyecto en un container alojado en Docker Hub.
+
 ## Licencia
 
 Consulte el archivo de [LICENCIA](https://github.com/lmanriquebo/hash-generator-api-front/blob/master/LICENSE.md) para conocer los derechos y limitaciones de la licencia (MIT).
